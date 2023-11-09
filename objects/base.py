@@ -1,0 +1,29 @@
+import pygame
+
+
+class DrawableObject:
+    def __init__(self, game):
+        self.game = game
+        self.rect = pygame.rect.Rect(0, 0, 0, 0)
+        self.is_visible = True
+
+    def move(self, x, y):
+        self.rect.x = x
+        self.rect.y = y
+
+    def move_center(self, x, y):
+        self.rect.centerx = x
+        self.rect.centery = y
+
+    def process_event(self, event):
+        pass
+
+    def process_logic(self):
+        pass
+
+    def process_base_draw(self):
+        if self.is_visible:
+            self.process_draw()
+
+    def process_draw(self):
+        pass  # use self.game.screen for drawing, padawan
